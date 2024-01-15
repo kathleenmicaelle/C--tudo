@@ -1,0 +1,37 @@
+
+e-And (Condicional) EE Left
+ou-Or ( Condicional) || Left
+Xor ( Condicional) ^ left
+
+   Vetores
+int[] array = new int{ 50 };
+            for (int i = 0; i < 50; i++)
+            { array[i] = i + 1;
+             }
+vetor: planilha temporaria, sequencia consecutiva de dados
+
+Sintaxe psrs de clarar: array coloca-se o tipo desejado, em seguida os {} , nome da variavel e alocação de tamanho do vetor
+vetor: planilha temporaria, sequencia consecutiva de dados
+
+int[] array = new int{ 50 };
+            for (int i = 0; i < 50; i++)
+            { array[i] = i + 1;
+             }
+
+inserir dados no array ultizando indice fazemos uma declaração simples e então  ieramos sobre todos os indices do array adicionando os valores especificos para cada um deles 
+
+1 declaramos o array de 50 posiçoes [0-49]
+2 defiição do loop for com 50 interaçoes com incremento.
+2 inserção de dados no array. para cada i nteração o array na posição i, recebera o valor i+1,ou seja, array  [0] = 1, array [1], array [1] ==2. array [3]== ; array [4]==5...
+
+
+1 a 4 esta acessando via indicine utiizando um int for  no quak o operasor e o i ele esta fazendo uma descrição 
+esse tipo de acesso e cumun em c#
+-utiliza o loop for 
+-inicia = 0 ate i120
+-incremento
+
+6 a 11 acesso de indice pelo while.
+-declerou i = 0
+-loop while 
+-declarando 01 a 10
