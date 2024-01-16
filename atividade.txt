@@ -1,0 +1,5 @@
+o codigo cria uma pequena lista de pilotos
+na linha um o codigo esta imprimeindo o array e inicializando o mesmo  
+na linha 2 esta mandando aparecer na tela os pilotos 3
+linha 4 mandando uma linha em branco 
+linha 5 esta em loop o foreach e imprimindo todos os alementods
