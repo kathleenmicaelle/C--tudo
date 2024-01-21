@@ -1,0 +1,133 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+
+namespace cuzcuzlover
+{
+    internal class Program
+    {
+
+class Planilha
+
+
+
+    {
+        static void Main()
+        {
+            List<string> nomesDespesas = new List<string>();
+            List<double> valoresDespesas = new List<double>();
+
+            while (true)
+            {
+                Console.WriteLine("=== Planilha de Despesas ===");
+                Console.WriteLine("1. Adicionar Despesa");
+                Console.WriteLine("2. Visualizar Despesas");
+                Console.WriteLine("3. Calcular Total e Percentual");
+                Console.WriteLine("4. Salvar e Sair");
+
+                Console.Write("Escolha uma opção: ");
+                string escolha = Console.ReadLine();
+
+                switch (escolha)
+                {
+                    case "1":
+                        AdicionarDespesa(nomesDespesas, valoresDespesas);
+                        break;
+                    case "2":
+                        VisualizarDespesas(nomesDespesas, valoresDespesas);
+                        break;
+                    case "3":
+                        CalcularTotalEPercentual(nomesDespesas, valoresDespesas);
+                        break;
+                    case "4":
+                        SalvarParaExcel(nomesDespesas, valoresDespesas);
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.WriteLine("Escolha inválida. Tente novamente.");
+                        break;
+                }
+            }
+        }
+
+        static void AdicionarDespesa(List<string> nomes, List<double> valores)
+        {
+            Console.Write("Digite o nome da despesa: ");
+            string nomeDespesa = Console.ReadLine();
+
+            Console.Write("Digite o valor da despesa: ");
+            double valorDespesa = Convert.ToDouble(Console.ReadLine());
+
+            nomes.Add(nomeDespesa);
+            valores.Add(valorDespesa);
+
+            Console.WriteLine("Despesa adicionada com sucesso!");
+            Console.ReadLine(); 
+        }
+
+        static void VisualizarDespesas(List<string> nomes, List<double> valores)
+        {
+            Console.WriteLine("=== Despesas ===");
+            for (int i = 0; i < nomes.Count; i++)
+            {
+                Console.WriteLine($"{nomes[i]}: R$ {valores[i]:F2}");
+            }
+            Console.ReadLine(); 
+        }
+
+        static void CalcularTotalEPercentual(List<string> nomes, List<double> valores)
+        {
+            double total = 0;
+
+            foreach (var valor in valores)
+            {
+                total += valor;
+            }
+
+            Console.WriteLine($"\nTotal das Despesas: R$ {total:F2}");
+
+            Console.WriteLine("\n=== Distribuição Percentual ===");
+            for (int i = 0; i < nomes.Count; i++)
+            {
+                double percentual = (valores[i] / total) * 100;
+                Console.WriteLine($"{nomes[i]}: {percentual:F2}%");
+            }
+
+            Console.ReadLine(); 
+        }
+
+        static void SalvarParaExcel(List<string> nomes, List<double> valores)
+        {
+            using (excelPackage excelPackage = new ExcelPackage())
+          
+            {
+
+                ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Despesas");
+
+
+                worksheet.Cells[1, 1].Value = "Despesa";
+                worksheet.Cells[1, 2].Value = "Valor";
+
+
+                for (int i = 0; i < nomes.Count; i++)
+                {
+                    worksheet.Cells[i + 2, 1].Value = nomes[i];
+                    worksheet.Cells[i + 2, 2].Value = valores[i];
+                }
+
+
+                FileInfo excelFile = new FileInfo("despesas.xlsx");
+                excelPackage.SaveAs(excelFile);
+
+                Console.WriteLine("Dados salvos no arquivo despesas.xlsx");
+            }
+        }
+    }
+
+
+
+
+
+}
+}
