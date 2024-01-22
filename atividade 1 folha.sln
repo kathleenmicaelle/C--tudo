@@ -1,25 +1,47 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "atividade 1 folha", "atividade 1 folha.csproj", "{7705A8B7-46BE-4DAC-9FE1-653F2CEB6CCD}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7705A8B7-46BE-4DAC-9FE1-653F2CEB6CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7705A8B7-46BE-4DAC-9FE1-653F2CEB6CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7705A8B7-46BE-4DAC-9FE1-653F2CEB6CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7705A8B7-46BE-4DAC-9FE1-653F2CEB6CCD}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DE62D7ED-74BA-4587-AC97-217BC6254915}
-	EndGlobalSection
-EndGlobal
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace atividade_1_folha
+{
+    using System;
+    using System.Net.NetworkInformation;
+
+    class Program
+    {
+        static void Main()
+        {
+
+            Console.WriteLine();
+            Console.ReadLine();
+
+            
+            String Nome = "Exemplo";
+            int quantidadeMinima = 20;
+            int quantidadeMaxima = 100;
+
+            Console.Write("calcular estoque");
+
+            double estoqueMedio = CalcularEstoqueMedio(quantidadeMinima, quantidadeMaxima);
+
+           
+            Console.WriteLine(value: "Estoque médio {nome}: {estoqueMedio}");
+        }
+
+        static double CalcularEstoqueMedio(int quantidadeMinima, int quantidadeMaxima)
+        {
+            
+            return (quantidadeMinima + quantidadeMaxima) / 2.0;
+
+            
+            
+        }
+    }
+}
+
+
+
+
