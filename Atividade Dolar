@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+        Console.Write("Digite a cotação do dólar: ");
+        double cotacaoDolar = Convert.ToDouble(Console.ReadLine());
+
+        
+        Console.Write("Digite o valor em dólares: ");
+        double valorEmDolares = Convert.ToDouble(Console.ReadLine());
+
+        
+        Console.Write("Escolha a moeda de conversão (1 - Real, 2 - Dólar): ");
+        int escolhaMoeda = Convert.ToInt32(Console.ReadLine());
+
+     
+        double valorConvertido = 0;
+
+        if (escolhaMoeda == 1)
+        {
+            // Converter para reais
+            valorConvertido = valorEmDolares * cotacaoDolar;
+            Console.WriteLine($"Valor convertido em Reais: {valorConvertido:C}");
+        }
+        else if (escolhaMoeda == 2)
+        {
+            
+            Console.WriteLine($"Valor em dólares: {valorEmDolares:C}");
+        }
+        else
+        {
+            Console.WriteLine("Opção de moeda inválida.");
+        }
+    }
+}
