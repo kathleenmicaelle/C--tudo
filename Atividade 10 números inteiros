@@ -1,0 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+      Console.WriteLine("usei if e else e deu certo");
+        Console.WriteLine("Digite o primeiro número inteiro:");
+        int numero1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Digite o segundo número inteiro:");
+        int numero2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine($"Relacionamentos entre {numero1} e {numero2}:");
+        // Igual
+        if (numero1 == numero2)
+            Console.WriteLine("Igual");
+        // Não igual
+        if (numero1 != numero2)
+            Console.WriteLine("Não igual");
+        // Menor
+        if (numero1 < numero2)
+            Console.WriteLine("Menor");
+        // Maior
+        if (numero1 > numero2)
+            Console.WriteLine("Maior");
+        // Maior ou Igual
+        if (numero1 >= numero2)
+            Console.WriteLine("Maior ou igual");
+        // Menor ou Igual
+        if (numero1 <= numero2)
+            Console.WriteLine("Menor ou igual");
+    }
+}
