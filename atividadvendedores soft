@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine(" Vendedores soft  ")
+        Console.Write("Digite o nome do vendedor: ");
+        string nomeVendedor = Console.ReadLine();
+
+        Console.Write("Digite o código da : ");
+        string codigoPeca = Console.ReadLine();
+
+        Console.Write("Digite o preço: ");
+        double precoUnitario = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("quantidade vendida: ");
+        int quantidadeVendida = Convert.ToInt32(Console.ReadLine());
+
+        
+        double totalVenda = precoUnitario * quantidadeVendida;
+        double comissao = 0.05 * totalVenda;
+
+        
+        Console.WriteLine("\nResumo da Venda:");
+        Console.WriteLine($"Vendedor: {nomeVendedor}");
+        Console.WriteLine($"Código da Peça: {codigoPeca}");
+        Console.WriteLine($"Preço Unitário: R${precoUnitario:F2}");
+        Console.WriteLine($"Quantidade Vendida: {quantidadeVendida}");
+        Console.WriteLine($"Total da Venda: R${totalVenda:F2}");
+        Console.WriteLine($"Comissão (5%): R${comissao:F2}");
+    }
+}
+
