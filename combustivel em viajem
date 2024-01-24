@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Consumo de Combustível\n");
+        double tempoViagem = ObterValor("Digite o tempo gasto na viagem em horas): ");
+        double velocidadeMedia = ObterValor("velocidade durante a viagem km/h ");
+        double litrosConsumidos = CalcularConsumoCombustivel(tempoViagem, velocidadeMedia); 
+        ExibirResultado(tempoViagem, velocidadeMedia, litrosConsumidos);
+        Console.ReadLine();
+    }
+    static double ObterValor(string mensagem)
+    {
+        Console.Write(mensagem);
+        return Convert.ToDouble(Console.ReadLine());
+    }
+
+    static double CalcularConsumoCombustivel(double tempoViagem, double velocidadeMedia)
+    {
+        double distancia = tempoViagem * velocidadeMedia;
+        double eficienciaVeiculo = 12;
+        return distancia / eficienciaVeiculo;
+    }
+    static void ExibirResultado(double tempoViagem, double velocidadeMedia, double litrosConsumidos)
+    {
+        Console.WriteLine($"\nDistância percorrida: {tempoViagem * velocidadeMedia} km");
+        Console.WriteLine($"Litros de combustível gastos: {litrosConsumidos} litros");
+    }
+}
