@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        
+        Console.WriteLine("Digite quatro valores inteiros softzinho:");
+
+        Console.Write("Valor 1: ");
+        int valor1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Valor 2: ");
+        int valor2 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Valor 3: ");
+        int valor3 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Valor 4: ");
+        int valor4 = Convert.ToInt32(Console.ReadLine());
+
+      
+        int resultadoAdicao1 = valor1 + valor2;
+        int resultadoMultiplicacao1 = valor1 * valor2;
+
+        int resultadoAdicao2 = valor3 + valor4;
+        int resultadoMultiplicacao2 = valor3 * valor4;
+
+    
+        Console.WriteLine("\nResultados das Operações:");
+        Console.WriteLine($"({valor1} + {valor2}) = {resultadoAdicao1}");
+        Console.WriteLine($"({valor1} * {valor2}) = {resultadoMultiplicacao1}");
+
+        Console.WriteLine($"({valor3} + {valor4}) = {resultadoAdicao2}");
+        Console.WriteLine($"({valor3} * {valor4}) = {resultadoMultiplicacao2}");
+    }
+}
+
