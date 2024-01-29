@@ -1,0 +1,229 @@
+[11:02, 29/01/2024] Lari: using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace atividade_final_2
+{
+    // Definição da classe Ingrediente
+    public class Ingrediente
+    {
+        public string Nome;
+        public decimal Quantidade;
+        public string UnidadeDeMedida;
+    }
+
+    // Definição da classe Receita
+    public class Receita
+    {
+        public string Nome;
+        public int TempoPreparacao;
+        public string GrauDificuldade;
+        public List<string> Categorias = new List<string>();
+        public string DescricaoPreparo;
+        public List<Ingrediente> Ingredientes = new List<Ingrediente>();
+    }
+
+    // Definição da classe SistemaReceitas
+    public class SistemaReceitas
+    {
+        private List<Receita> receitas = new List<Recei…
+[11:02, 29/01/2024] Lari: essa e a correta
+[11:32, 29/01/2024] Lari: using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace atividade_final_2
+{
+    // Definição da classe Ingrediente
+    public class Ingrediente
+    {
+        public string Nome;
+        public decimal Quantidade;
+        public string UnidadeDeMedida;
+    }
+
+    // Definição da classe Receita
+    public class Receita
+    {
+        public string Nome;
+        public int TempoPreparacao;
+        public string GrauDificuldade;
+        public List<string> Categorias = new List<string>();
+        public string DescricaoPreparo;
+        public List<Ingrediente> Ingredientes = new List<Ingrediente>();
+    }
+
+    // Definição da classe SistemaReceitas
+    public class SistemaReceitas
+    {
+        private List<Receita> receitas = new List<Receita>();
+
+        public void AdicionarReceita(Receita receita) => receitas.Add(receita);
+
+        public void EditarReceita(string nomeReceita, Receita novaReceita)
+        {
+            var receitaExistente = receitas.Find(r => r.Nome.Equals(nomeReceita, StringComparison.OrdinalIgnoreCase));
+
+            if (receitaExistente != null)
+            {
+                receitas.Remove(receitaExistente);
+                receitas.Add(novaReceita);
+            }
+        }
+
+        public void ExcluirReceita(string nomeReceita) =>
+            receitas.RemoveAll(r => r.Nome.Equals(nomeReceita, StringComparison.OrdinalIgnoreCase));
+
+        public List<Receita> BuscarPorCategoria(string categoria) =>
+            receitas.FindAll(r => r.Categorias.Contains(categoria, StringComparer.OrdinalIgnoreCase));
+
+        public void ExibirTodasReceitas()
+        {
+            foreach (var receita in receitas)
+            {
+                Console.WriteLine($"Nome: {receita.Nome}");
+                Console.WriteLine($"Tempo de Preparação: {receita.TempoPreparacao} minutos");
+                Console.WriteLine($"Grau de Dificuldade: {receita.GrauDificuldade}");
+                Console.WriteLine($"Categorias: {string.Join(", ", receita.Categorias)}");
+                Console.WriteLine($"Descrição do Preparo: {receita.DescricaoPreparo}");
+                Console.WriteLine("Ingredientes:");
+                foreach (var ingrediente in receita.Ingredientes)
+                {
+                    Console.WriteLine($"  - {ingrediente.Nome}: {ingrediente.Quantidade} {ingrediente.UnidadeDeMedida}");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public Receita ConsultarReceita(string nomeReceita) =>
+            receitas.Find(r => r.Nome.Equals(nomeReceita, StringComparison.OrdinalIgnoreCase));
+    }
+
+    class receita
+    {
+        static void Main()
+        {
+            SistemaReceitas sistema = new SistemaReceitas();
+
+            var novaReceita = new Receita
+            {
+                Nome = "Lasanha",
+                TempoPreparacao = 60,
+                GrauDificuldade = "dificil",
+                Categorias = new List<string> { "Massas", "Carnes" },
+                DescricaoPreparo = "Deliciosa lasanha caseira.",
+                Ingredientes = new List<Ingrediente>
+                {
+                    new Ingrediente { Nome = "Massa de Lasanha", Quantidade = 250, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Carne Moída", Quantidade = 500, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Molho de Tomate", Quantidade = 500, UnidadeDeMedida = "ml" },
+                    new Ingrediente { Nome = "Mussarela", Quantidade = 500, UnidadeDeMedida = "g" },
+                }
+            };
+
+            var Receitanova = new Receita
+            {
+                Nome = "Cachorro quente",
+                TempoPreparacao = 40,
+                GrauDificuldade = "Fácil",
+                Categorias = new List<string> { "pão", "molho" },
+                DescricaoPreparo = "O cachorro-quente é um lanche fácil e prático que é o queridinho dos brasileiros! Uma opção rápida para quando alguém faz aquela visitinha, fica pronto em apenas 15 minutos, e além, de ser uma opção perfeita para festa de aniversário, encontro com amigos, festa infantil, encontros com a família ou muitas outras ocasiões especiais..",
+                Ingredientes = new List<Ingrediente>
+                {
+                    new Ingrediente { Nome = "1 cebola picada", Quantidade = 50, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "3 dentes de alho picados", Quantidade = 3, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Meio pimentão verde em tiras", Quantidade = 1, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Molho de tomate", Quantidade = 300, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Salsicha", Quantidade = 1, UnidadeDeMedida = "kg" },
+                    new Ingrediente { Nome = "Cheiro-verde a gosto", Quantidade = 1, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Maionese a gosto", Quantidade = 1, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Ketchup a gosto", Quantidade = 1, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Mostarda amarela a gosto", Quantidade = 1, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Batata palha a gosto", Quantidade = 1, UnidadeDeMedida = "g" },
+                }
+            };
+            var Receitabeijinho = new Receita
+            {
+                Nome = "beijinho",
+                TempoPreparacao = 25,
+                GrauDificuldade = "medio",
+                Categorias = new List<string> { "doce", "para festa" },
+                DescricaoPreparo = "Ele é um doce tradicional das festas infantis e amado por todos! Veja como fazer essa receita de beijinho fácil e rápida!.",
+                Ingredientes = new List<Ingrediente>
+                {
+                    new Ingrediente { Nome = "leite em po", Quantidade = 1, UnidadeDeMedida = "unidade" },
+                    new Ingrediente { Nome = "coco", Quantidade = 300, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "cravos da india", Quantidade = 300, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "leite condensado", Quantidade = 1, UnidadeDeMedida = "unidade" },
+                    new Ingrediente { Nome = "manteiga", Quantidade = 50, UnidadeDeMedida = "g" },
+
+                }
+            };
+
+
+
+            var Receitadiguina = new Receita
+            {
+                Nome = "Brigadeiro",
+                TempoPreparacao = 30,
+                GrauDificuldade = "Fácil",
+                Categorias = new List<string> { "sobremesa", "doce" },
+                DescricaoPreparo = "Brigadeiro é uma receita tradicional, prática de fazer e extremamente gostosa.",
+                Ingredientes = new List<Ingrediente>
+                {
+                    new Ingrediente { Nome = "Leite condensado", Quantidade = 100, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "manteiga", Quantidade = 50, UnidadeDeMedida = "g" },
+                    new Ingrediente { Nome = "Nescau ou cacau", Quantidade = 1, UnidadeDeMedida = "unidades" },
+                }
+            };
+
+            var Receitacuzcuz = new Receita
+            {
+                Nome = "cuzcuz",
+                TempoPreparacao = 20,
+                GrauDificuldade = "medio",
+                Categorias = new List<string> { "salgado", "caseiro" },
+                DescricaoPreparo = "massa doce feita com tapioca, farinha de arroz, de milho ou de aipim, misturada ao leite de coco e ger. cozida no vapor..",
+                Ingredientes = new List<Ingrediente>
+                {
+                    new Ingrediente { Nome = "farinha de cuzcuz", Quantidade = 1, UnidadeDeMedida = "unidade" },
+                    new Ingrediente { Nome = "calabresa", Quantidade = 1, UnidadeDeMedida = "kilo" },
+                }
+            };
+
+            sistema.AdicionarReceita(novaReceita);
+            sistema.AdicionarReceita(Receitanova);
+            sistema.AdicionarReceita(Receitadiguina);
+            sistema.AdicionarReceita(Receitacuzcuz);
+            sistema.AdicionarReceita(Receitabeijinho);
+
+            var receitaConsultada = sistema.ConsultarReceita("Cachorro quente");
+
+            if (receitaConsultada != null)
+            {
+                Console.WriteLine("Receita Consultada:");
+                Console.WriteLine($"Nome: {receitaConsultada.Nome}");
+                Console.WriteLine($"Tempo de Preparação: {receitaConsultada.TempoPreparacao} minutos");
+                Console.WriteLine($"Grau de Dificuldade: {receitaConsultada.GrauDificuldade}");
+                Console.WriteLine($"Categorias: {string.Join(", ", receitaConsultada.Categorias)}");
+                Console.WriteLine($"Descrição do Preparo: {receitaConsultada.DescricaoPreparo}");
+                Console.WriteLine("Ingredientes:");
+                foreach (var ingrediente in receitaConsultada.Ingredientes)
+                {
+                    Console.WriteLine($"  - {ingrediente.Nome}: {ingrediente.Quantidade} {ingrediente.UnidadeDeMedida}");
+                }
+
+                Console.WriteLine(); // Adiciona uma linha em branco após a exibição da receita consultada
+            }
+            else
+            {
+                Console.WriteLine("Receita não encontrada.");
+            }
+
+            Console.WriteLine("Todas as Receitas:"); // Adiciona um cabeçalho para a lista de todas as receitas
+            sistema.ExibirTodasReceitas(); // Exibe todas as receitas
+
+            Console.ReadLine();
+        }
+    }
+}
