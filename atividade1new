@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] ponto = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+        bool estaEmOrdemCrescente = EstaEmOrdemCrescente(ponto);
+
+        Console.WriteLine(estaEmOrdemCrescente ? "O vetor está em ordem crescente." : "O vetor não está em ordem crescente.");
+    }
+
+    static bool EstaEmOrdemCrescente(int[] ponto)
+    {
+        for (int i = 1; i < ponto.Length; i++)
+        {
+            if (ponto[i] < ponto[i - 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
