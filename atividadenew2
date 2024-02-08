@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int[] vetor = { 3, 7, 2, 9, 5, 8, 1, 4, 6, 10, 15, 54, 89, 23, 56, 76,  };
+
+        int primeiroMaior = int.MinValue;
+        int segundoMaior = int.MinValue;
+
+        foreach (int num in vetor)
+        {
+            if (num > primeiroMaior)
+            {
+                segundoMaior = primeiroMaior;
+                primeiroMaior = num;
+            }
+            else if (num > segundoMaior)
+            {
+                segundoMaior = num;
+            }
+        }
+
+        Console.WriteLine(segundoMaior != int.MinValue ? "O segundo maior valor no vetor é: " + segundoMaior : "Não há segundo maior valor no vetor.");
+    }
+}
